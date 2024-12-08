@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Eventify</title>
+    <meta name="description" content="Manage your events, preferences, and upcoming RSVP’d activities with Eventify.">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="dashboard.html">
+                    <img src="../../assets/logo-light.png" alt="Eventify Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="events.html">Events</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </nav>
+    </header>
+
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="events.html"><i class="fas fa-list"></i> Event Listings</a></li>
+            <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Event Calendar</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Overview Section -->
+        <section class="dashboard-header">
+            <h1>Welcome, <span id="user-name">[User Name]</span>!</h1>
+            <p>Manage your events and preferences easily with Eventify.</p>
+        </section>
+
+        <!-- RSVP'd Events Section -->
+        <section class="dashboard-metrics">
+            <h2>Your RSVP’d Events</h2>
+            <div class="dashboard-grid">
+                <!-- Event 1 -->
+                <div class="dashboard-card">
+                    <h3>Networking Night</h3>
+                    <p>Date: 12th Dec 2024</p>
+                    <p>Time: 6:00 PM</p>
+                    <a href="event-details.html" class="dashboard-link">View Details</a>
+                </div>
+                <!-- Event 2 -->
+                <div class="dashboard-card">
+                    <h3>Tech Meetup 2024</h3>
+                    <p>Date: 20th Dec 2024</p>
+                    <p>Time: 4:00 PM</p>
+                    <a href="event-details.html" class="dashboard-link">View Details</a>
+                </div>
+                <!-- Placeholder -->
+                <p>No more events RSVP’d. Check out the event listings to RSVP to more!</p>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="key-functionalities">
+            <h2>Quick Actions</h2>
+            <div class="functionalities-grid">
+                <div class="functionalities-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Browse Events</h3>
+                    <p>Find new and exciting events happening near you.</p>
+                    <a href="events.html" class="action-link">Explore Events</a>
+                </div>
+                <div class="functionalities-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>View Your Calendar</h3>
+                    <p>See all your RSVP’d events in one place.</p>
+                    <a href="calendar.html" class="action-link">View Calendar</a>
+                </div>
+                <div class="functionalities-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Update Preferences</h3>
+                    <p>Tailor your experience by updating your interests.</p>
+                    <a href="profile.html" class="action-link">Update Preferences</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity Section -->
+        <section class="dashboard-recent-activity">
+            <h2>Recent Activity</h2>
+            <div class="recent-activity-list">
+                <div class="activity-item">
+                    <p><i class="fas fa-check-circle"></i> You RSVP’d to *Tech Meetup 2024*.</p>
+                    <span class="activity-timestamp">2 hours ago</span>
+                </div>
+                <div class="activity-item">
+                    <p><i class="fas fa-calendar-plus"></i> *Networking Night* was added to your calendar.</p>
+                    <span class="activity-timestamp">1 day ago</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</body>
+
+</html>

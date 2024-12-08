@@ -1,0 +1,37 @@
+{
+  "name": "eventify",
+  "version": "1.0.0",
+  "description": "A campus event management system that allows students and staff to view, create, and register for campus events such as workshops, seminars, and club activities, with RSVP and event calendar features.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "campus",
+    "events",
+    "event",
+    "management",
+    "RSVP",
+    "system",
+    "workshops",
+    "seminars",
+    "club",
+    "activities",
+    "event",
+    "calendar",
+    "Node.js",
+    "MongoDB",
+    "MVC",
+    "architecture"
+  ],
+  "author": "Nana Bentil Saah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.4",
+    "nodemailer": "^6.9.16"
+  }
+}

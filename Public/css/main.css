@@ -1,0 +1,207 @@
+:root {
+    --purple: #6B4F96;
+    --pink: #FF86EB;
+    --white: #FFFFFF;
+    --light-purple: #A29BFE;
+    --light-pink: #F8B1F9;
+    --background-light: #F9F9F9;
+    --background-dark: #212224;
+    --text-dark: #212224;
+    --text-light-gray: #7B7B7B;
+    --text-white: #FFFFFF;
+    --btn-primary-bg: #6B4F96;
+    --btn-secondary-bg: #FF86EB;
+    --btn-text: #FFFFFF;
+    --btn-primary-hover: #5A3C84;
+    --btn-secondary-hover: #F57FCC;
+    --border-light: #D9D9D9;
+    --border-dark: #212224;
+    --max-width: 1200px;
+    --spacing-unit: 1rem;
+    --line-height: 1.6;
+    --font-size-default: 1rem;
+    --font-size-heading: 2rem;
+    --font-size-subheading: 1.2rem;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --yellow: #ffc107;
+    --yellow-hover: #ffa000;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: var(--line-height);
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--background-dark);
+    color: var(--text-white);
+    padding: var(--spacing-unit) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.navbar .logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: var(--spacing-unit);
+    list-style: none;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    background-color: var(--light-purple);
+    border-radius: 5px;
+}
+
+.navbar .nav-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar .avatar {
+    max-width: 70px;
+    border-radius: 50%;
+}
+
+.navbar .admin-name {
+    font-weight: bold;
+    color: var(--background-light);
+}
+
+/* Logout Button Styles in Header */
+.header .logout-btn {
+    background-color: var(--light-purple); 
+    color: var(--text-white); 
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.header .logout-btn:hover {
+    background-color: var(--dark-purple); 
+    transform: scale(1.05); 
+}
+
+.header .logout-btn:active {
+    background-color: var(--dark-purple); 
+    transform: scale(0.95); 
+}
+
+.header .logout-btn:focus {
+    outline: 2px solid var(--light-purple); 
+    outline-offset: 2px;
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2rem 1rem;
+    z-index: 1000;
+}
+
+.sidebar .sidebar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar .sidebar-links a {
+    text-decoration: none;
+    color: var(--btn-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .sidebar-links a.active,
+.sidebar .sidebar-links a:hover {
+    background-color: var(--light-purple);
+}
+
+.sidebar .sidebar-links i {
+    font-size: 1.2rem;
+}
+
+
+.footer {
+    background-color: var(--background-dark);
+    color: var(--text-white);
+    text-align: center;
+    padding: var(--spacing-unit);
+    margin-top: 2rem;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 2rem;
+    background-color: var(--background-light);
+    min-height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+}
