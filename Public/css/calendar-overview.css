@@ -1,0 +1,148 @@
+/* Event Calendar Overview */
+.event-calendar-overview {
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-calendar-overview h1 {
+    font-size: 2rem;
+    color: #212224;
+}
+
+.event-calendar-overview p {
+    color: #7B7B7B;
+    margin-top: 10px;
+}
+
+/* Calendar Container */
+.calendar-container {
+    margin-top: 20px;
+}
+
+/* Calendar Controls */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-month-year {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #212224;
+}
+
+.calendar-controls .btn {
+    background-color: #6B4F96;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar-controls .btn:hover {
+    background-color: #5A3C84;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* Weekdays Header */
+.calendar-header {
+    display: contents;
+}
+
+.calendar-day {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #212224;
+    padding: 10px;
+    background-color: #EDEDED;
+    border-radius: 4px;
+}
+
+/* Calendar Days */
+.calendar-days {
+    display: contents;
+}
+
+.calendar-day-cell {
+    position: relative;
+    padding: 15px;
+    background-color: #F9F9F9;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-day-cell:hover {
+    background-color: #F2F2F2;
+}
+
+.calendar-day-number {
+    font-size: 1.2rem;
+    color: #212224;
+}
+
+.event-marker {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #6B4F96;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.event-marker .event-count {
+    font-weight: bold;
+}
+
+/* Add Event Button */
+.add-event-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add-event-button .btn {
+    background-color: #6B4F96;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-event-button .btn:hover {
+    background-color: #5A3C84;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-day {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,149 @@
+/* User Search and Filters */
+.user-search-filters {
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-bar .btn {
+    background-color: #ff86eb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.search-bar .btn:hover {
+    background-color: #e075d2;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filters select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* User List */
+.user-list {
+    margin-bottom: 30px;
+}
+
+.user-list-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-list-table th, .user-list-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-list-table th {
+    background-color: #ff86eb;
+    color: #fff;
+}
+
+.user-list-table td {
+    color: #555;
+}
+
+/* Add New User */
+.add-new-user {
+    margin-bottom: 30px;
+}
+
+.add-new-user form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-new-user .form-group {
+    margin-bottom: 15px;
+}
+
+.add-new-user .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-new-user .form-group input, .add-new-user .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.add-new-user .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ff86eb;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.add-new-user .btn:hover {
+    background-color: #e075d2;
+}
+
+/* User Activity Log */
+.user-activity-log {
+    margin-bottom: 30px;
+}
+
+.user-activity-log .log-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-activity-log textarea {
+    width: 100%;
+    height: 200px;
+    border: none;
+    font-size: 1em;
+    padding: 10px;
+    resize: none;
+    color: #555;
+    background-color: #f8f8f6;
+    border-radius: 5px;
+}

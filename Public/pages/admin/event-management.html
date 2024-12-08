@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Eventify</title>
+    <meta name="description" content="Administer users, events, and platform analytics with Eventify.">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/event-management.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="admin-dashboard.html">
+                    <img src="../../assets/logo-light.png" alt="Eventify Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="user-management.html">Users</a></li>
+                <li><a href="event-management.html">Events</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </nav>
+    </header>
+
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="admin-dashboard.html" ><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="user-management.html" ><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="event-management.html" class="active"><i class="fas fa-calendar-plus"></i> Event Management</a></li>
+            <li><a href="calendar-overview.html"><i class="fas fa-calendar-alt"></i> Calendar Overview</a></li>
+            <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <!-- Event Management Overview -->
+        <section class="event-management-overview">
+            <h1>Event Management Dashboard</h1>
+            <p>Manage all your events efficiently with real-time updates and tools.</p>
+        </section>
+    
+        <!-- Event Search and Filters -->
+        <section class="event-search-filters">
+            <h2>Search and Filter Events</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for events..." />
+                <button class="btn">Search</button>
+            </div>
+            <div class="filters">
+                <label for="event-category-filter">Category</label>
+                <select id="event-category-filter">
+                    <option value="">Category</option>
+                    <option value="conference">Conference</option>
+                    <option value="seminar">Seminar</option>
+                    <option value="workshop">Workshop</option>
+                </select>
+                <label for="event-status-filter">Status</label>
+                <select id="event-status-filter">
+                    <option value="">Status</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="ongoing">Ongoing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+        </section>
+    
+        <!-- Event List -->
+        <section class="event-list">
+            <h2>Event List</h2>
+            <div class="event-list-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tech Conference 2024</td>
+                            <td>Jan 15, 2024</td>
+                            <td>Conference</td>
+                            <td>Upcoming</td>
+                            <td>
+                                <button class="btn">View</button>
+                                <button class="btn">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>AI Workshop</td>
+                            <td>Dec 12, 2023</td>
+                            <td>Workshop</td>
+                            <td>Ongoing</td>
+                            <td>
+                                <button class="btn">View</button>
+                                <button class="btn">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    
+        <!-- Add New Event -->
+        <section class="add-new-event">
+            <h2>Add New Event</h2>
+            <form>
+                <div class="form-group">
+                    <label for="event-name">Event Name</label>
+                    <input type="text" id="event-name" placeholder="Enter event name" />
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Event Date</label>
+                    <input type="date" id="event-date" />
+                </div>
+                <div class="form-group">
+                    <label for="event-category">Category</label>
+                    <select id="event-category">
+                        <option value="">Select Category</option>
+                        <option value="conference">Conference</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="workshop">Workshop</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-status">Status</label>
+                    <select id="event-status">
+                        <option value="upcoming">Upcoming</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <button class="btn" type="submit">Add Event</button>
+            </form>
+        </section>
+    
+        <!-- Event Activity Log -->
+        <section class="event-activity-log">
+            <h2>Event Activity Log</h2>
+            <div class="log-container">
+                <textarea readonly title="Event Activity Log">Event activities and updates will appear here...</textarea>
+            </div>
+        </section>
+    </main>
+    
+
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</body>
+
+</html>

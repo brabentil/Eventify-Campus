@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Eventify</title>
+    <meta name="description" content="Administer users, events, and platform analytics with Eventify.">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/calendar-overview.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="admin-dashboard.html">
+                    <img src="../../assets/logo-light.png" alt="Eventify Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="user-management.html">Users</a></li>
+                <li><a href="event-management.html">Events</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </nav>
+    </header>
+
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="admin-dashboard.html" ><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="user-management.html" ><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="event-management.html" ><i class="fas fa-calendar-plus"></i> Event Management</a></li>
+            <li><a href="calendar-overview.html" class="active"><i class="fas fa-calendar-alt"></i> Calendar Overview</a></li>
+            <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <!-- Event Calendar Overview -->
+        <section class="event-calendar-overview">
+            <h1>Event Calendar Overview</h1>
+            <p>View all upcoming events on the calendar. Easily manage events by clicking on specific dates.</p>
+    
+            <!-- Calendar Container -->
+            <div class="calendar-container">
+                <!-- Calendar Controls -->
+                <div class="calendar-controls">
+                    <button class="btn btn-prev-month">← Prev</button>
+                    <h2 class="calendar-month-year">December 2024</h2>
+                    <button class="btn btn-next-month">Next →</button>
+                </div>
+    
+                <!-- Calendar Grid -->
+                <div class="calendar-grid">
+                    <!-- Weekdays Header -->
+                    <div class="calendar-header">
+                        <div class="calendar-day">Sun</div>
+                        <div class="calendar-day">Mon</div>
+                        <div class="calendar-day">Tue</div>
+                        <div class="calendar-day">Wed</div>
+                        <div class="calendar-day">Thu</div>
+                        <div class="calendar-day">Fri</div>
+                        <div class="calendar-day">Sat</div>
+                    </div>
+    
+                    <!-- Calendar Days -->
+                    <div class="calendar-days">
+                        <!-- Day 1 -->
+                        <div class="calendar-day-cell" data-date="2024-12-01">
+                            <span class="calendar-day-number">1</span>
+                            <div class="event-marker">
+                                <span class="event-count">2</span>
+                            </div>
+                        </div>
+                        <!-- Day 2 -->
+                        <div class="calendar-day-cell" data-date="2024-12-02">
+                            <span class="calendar-day-number">2</span>
+                        </div>
+                        <!-- More days here -->
+                        <!-- Day 15 -->
+                        <div class="calendar-day-cell" data-date="2024-12-15">
+                            <span class="calendar-day-number">15</span>
+                            <div class="event-marker">
+                                <span class="event-count">1</span>
+                            </div>
+                        </div>
+                        <!-- Day 16 -->
+                        <div class="calendar-day-cell" data-date="2024-12-16">
+                            <span class="calendar-day-number">16</span>
+                            <div class="event-marker">
+                                <span class="event-count">3</span>
+                            </div>
+                        </div>
+                        <!-- More days here -->
+                    </div>
+                </div>
+    
+                <!-- Add New Event Button -->
+                <div class="add-event-button">
+                    <button class="btn btn-primary">Add New Event</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</body>
+
+</html>

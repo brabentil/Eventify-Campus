@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Eventify</title>
+    <meta name="description" content="Administer users, events, and platform analytics with Eventify.">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/admin-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="admin-dashboard.html">
+                    <img src="../../assets/logo-light.png" alt="Eventify Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="user-management.html">Users</a></li>
+                <li><a href="event-management.html">Events</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </nav>
+    </header>
+
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="admin-dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="event-management.html"><i class="fas fa-calendar-plus"></i> Event Management</a></li>
+            <li><a href="calendar-overview.html"><i class="fas fa-calendar-alt"></i> Calendar Overview</a></li>
+            <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Overview Section -->
+        <section class="dashboard-header">
+            <h1>Welcome, Admin!</h1>
+            <p>Monitor and manage your platform effortlessly with Eventify.</p>
+        </section>
+
+        <!-- Key Functionalities Section -->
+        <section class="key-functionalities">
+            <h2>Key Features</h2>
+            <div class="functionalities-grid">
+                <div class="functionalities-card">
+                    <i class="fas fa-users"></i>
+                    <h3>User Management</h3>
+                    <p>View and manage user profiles, suspend accounts, and assign roles.</p>
+                    <a href="user-management.html" class="action-link">Manage Users</a>
+                </div>
+                <div class="functionalities-card">
+                    <i class="fas fa-calendar-plus"></i>
+                    <h3>Event Management</h3>
+                    <p>Create, edit, and approve or reject events.</p>
+                    <a href="event-management.html" class="action-link">Manage Events</a>
+                </div>
+                <div class="functionalities-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Calendar Overview</h3>
+                    <p>View all upcoming events in a comprehensive calendar.</p>
+                    <a href="calendar-overview.html" class="action-link">View Calendar</a>
+                </div>
+                <div class="functionalities-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analytics and Reporting</h3>
+                    <p>Track user activity, event registrations, and platform performance.</p>
+                    <a href="analytics.html" class="action-link">View Analytics</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities Section -->
+        <section class="dashboard-recent-activity">
+            <h2>Recent Activities</h2>
+            <div class="recent-activity-list">
+                <div class="activity-item">
+                    <p><i class="fas fa-user-check"></i> Approved registration for user *John Doe*.</p>
+                    <span class="activity-timestamp">30 minutes ago</span>
+                </div>
+                <div class="activity-item">
+                    <p><i class="fas fa-calendar-check"></i> Approved event *Tech Conference 2024*.</p>
+                    <span class="activity-timestamp">2 hours ago</span>
+                </div>
+                <div class="activity-item">
+                    <p><i class="fas fa-user-slash"></i> Suspended user account *Jane Smith*.</p>
+                    <span class="activity-timestamp">1 day ago</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</body>
+
+</html>
