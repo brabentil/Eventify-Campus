@@ -4,7 +4,9 @@
   "description": "A campus event management system that allows students and staff to view, create, and register for campus events such as workshops, seminars, and club activities, with RSVP and event calendar features.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "campus",
@@ -27,11 +29,19 @@
   "author": "Nana Bentil Saah",
   "license": "ISC",
   "dependencies": {
+    "@kinde-oss/kinde-auth-pkce-js": "^4.2.2",
+    "@kinde-oss/kinde-node-express": "^1.6.0",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.4",
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   }
 }

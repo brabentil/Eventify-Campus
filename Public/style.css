@@ -429,7 +429,82 @@ nav button:hover {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}/* About Us Section */
+.about {
+    background-color: #f3f4f6; /* Light gray background */
 }
+
+/* Heading and Line Style */
+.about p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #6b21a8; /* Purple color */
+    margin-bottom: 8px;
+}
+
+/* Purple line under "About Us" */
+.about h2 {
+    position: relative;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333; /* Dark gray for the heading */
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.about h2::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px; /* Line width */
+    height: 4px; /* Line height */
+    background-color: #6b21a8; /* Purple color */
+}
+
+/* About Text Style */
+.about p {
+    font-size: 16px;
+    color: #4a4a4a; /* Gray text for general content */
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+#more-text {
+    display: none; /* Hide the extended text initially */
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-top: 16px;
+}
+
+/* Read More Button Style */
+.read-more-button {
+    background-color: #facc15; /* Yellow background */
+    color: #6b21a8; /* Purple text */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+/* Button Hover Effects */
+.read-more-button:hover {
+    background-color: #eab308; /* Darker yellow on hover */
+    color: #4c1d95; /* Darker purple text on hover */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about .max-w-6xl {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
 
 .about-content .btn:hover {
     background-color: var(--btn-primary-hover);

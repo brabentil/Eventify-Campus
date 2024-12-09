@@ -6,9 +6,7 @@
     <title>Eventify</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-   
-
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,30 +20,24 @@
             </div>
 
             <!-- Navigation Links -->
-            <ul class="md:flex space-x-6 text-lg hidden absolute top-full left-0 w-full bg-purple-500 md:relative md:w-auto md:bg-transparent">
-                <li>
-                    <a href="#home" class="hover:underline block md:inline-block px-4 py-2 md:p-0">Home</a>
-                </li>
-                <li>
-                    <a href="#about" class="hover:underline block md:inline-block px-4 py-2 md:p-0">About</a>
-                </li>
-                <li>
-                    <a href="#features" class="hover:underline block md:inline-block px-4 py-2 md:p-0">Features</a>
-                </li>
-                <li>
-                    <a href="#contact" class="hover:underline block md:inline-block px-4 py-2 md:p-0">Contact</a>
-                </li>
+            <ul class="hidden md:flex space-x-6 text-lg">
+                <li><a href="#home" class="hover:underline">Home</a></li>
+                <li><a href="#about" class="hover:underline">About</a></li>
+                <li><a href="#features" class="hover:underline">Features</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
             </ul>
 
             <!-- Sign In Button -->
             <div>
+                <a href="/login">
                 <button id="login" class="bg-white text-purple-500 px-4 py-2 rounded-md font-bold hover:bg-gray-200">
                     Sign In
                 </button>
+            </a>
             </div>
 
             <!-- Mobile Menu Icon -->
-            <div class="mobile-menu md:hidden text-xl cursor-pointer">
+            <div class="mobile-menu cursor-pointer md:hidden">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
@@ -59,7 +51,7 @@
                 Effortlessly create, manage, and attend campus events all in one place.
             </p>
             <div class="hero-buttons flex justify-center gap-4">
-                <a   id="register" class="hero-button get-started bg-yellow-400 text-purple-500 px-6 py-2 rounded-md font-bold hover:bg-yellow-500">
+                <a href="/register" class="hero-button get-started bg-yellow-400 text-purple-500 px-6 py-2 rounded-md font-bold hover:bg-yellow-500">
                     Get Started
                 </a>
                 <a href="#features" class="hero-button learn-more border border-white text-white px-6 py-2 rounded-md font-bold hover:bg-white hover:text-purple-500">
@@ -89,7 +81,7 @@
                 </div>
                 <!-- Feature 3 -->
                 <div class="bg-gray-100 shadow rounded-lg p-6">
-                    <i class="fas fa-chart-line text-green-500 mb-4 icon-large"></i>
+                    <i class="fas fa-chart-line text-green-500 mb-4"></i>
                     <h3 class="text-xl font-bold text-gray-700">Analytics</h3>
                     <p class="text-gray-500">Get insights on event participation and trends.</p>
                 </div>
@@ -98,24 +90,21 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-20 px-6 bg-gray-100" id="about">
+    <section class="about py-20 px-6 bg-gray-100" id="about">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <!-- Image Section -->
-            <div class="about-image">
+            <div>
                 <img src="assets/eventify.jpg" alt="About Eventify" class="rounded-lg shadow-lg w-full">
             </div>
-
-            <!-- Content Section -->
-            <div class="about-content">
+            <div>
                 <p class="text-purple-500 font-bold uppercase mb-2">About Us</p>
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Simplify Campus Event Management</h2>
                 <p class="text-gray-600 mb-6">
                     Eventify is your all-in-one solution for organizing and participating in campus events. Whether you are planning a seminar, hosting a workshop, or attending a social gathering, Eventify ensures seamless event management with real-time updates, RSVPs, and more.
                 </p>
-                <p class="text-gray-600 mb-6 hidden" id="more-text">
+                <p class="text-gray-600 hidden" id="more-text">
                     We strive to provide a user-friendly platform that empowers students, faculty, and staff to collaborate and bring events to life effortlessly. With tools for ticketing, notifications, and event analytics, Eventify redefines the way campus events are managed and experienced.
                 </p>
-                <button class="btn bg-yellow-400 text-purple-700 px-6 py-3 rounded-md font-bold hover:bg-yellow-500 transition-all" onclick="toggleMoreText()">
+                <button class="btn read-more-button bg-yellow-400 text-purple-700 px-6 py-3 rounded-md font-bold hover:bg-yellow-500">
                     Read More
                 </button>
             </div>
@@ -128,33 +117,21 @@
             <h2 class="text-3xl font-bold text-gray-800 mb-4">Contact Us</h2>
             <p class="text-gray-600 mb-6">Have questions or feedback? Reach out to us!</p>
             <div class="flex justify-center space-x-8">
-                <!-- Email Section with Font Awesome Icon -->
                 <div>
-                    <h3 class="text-lg font-bold text-gray-700 flex items-center justify-center">
-                        <i class="fas fa-envelope mr-2"></i>
-                        Email
+                    <h3 class="text-lg font-bold text-gray-700">
+                        <i class="fas fa-envelope mr-2"></i>Email
                     </h3>
-                    <p class="text-gray-500">
-                        <a href="mailto:support@eventify.com">support@eventify.com</a>
-                    </p>
+                    <p class="text-gray-500"><a href="mailto:support@eventify.com">support@eventify.com</a></p>
                 </div>
-
-                <!-- Phone Section with Font Awesome Icon -->
                 <div>
-                    <h3 class="text-lg font-bold text-gray-700 flex items-center justify-center">
-                        <i class="fas fa-phone mr-2"></i>
-                        Phone
+                    <h3 class="text-lg font-bold text-gray-700">
+                        <i class="fas fa-phone mr-2"></i>Phone
                     </h3>
-                    <p class="text-gray-500">
-                        <a href="tel:+1234567890">+1 234 567 890</a>
-                    </p>
+                    <p class="text-gray-500"><a href="tel:+1234567890">+1 234 567 890</a></p>
                 </div>
-
-                <!-- Location Section with Font Awesome Icon -->
                 <div>
-                    <h3 class="text-lg font-bold text-gray-700 flex items-center justify-center">
-                        <i class="fas fa-map-marker-alt mr-2"></i>
-                        Location
+                    <h3 class="text-lg font-bold text-gray-700">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Location
                     </h3>
                     <p class="text-gray-500">Accra, Ghana</p>
                 </div>
@@ -166,41 +143,11 @@
     <footer class="bg-purple-500 text-white py-6">
         <div class="max-w-6xl mx-auto text-center">
             <p class="mb-2">&copy; 2024 Eventify. All rights reserved.</p>
+            <p class="date"></p>
         </div>
     </footer>
-
-    <script>
-        function toggleMoreText() {
-            const moreText = document.getElementById('more-text');
-            const button = event.target;
-            if (moreText.style.display === 'none') {
-                moreText.style.display = 'block';
-                button.textContent = 'Show Less';
-            } else {
-                moreText.style.display = 'none';
-                button.textContent = 'Read More';
-            }
-        }
-
-        const createKindeClient = require("@kinde-oss/kinde-auth-pkce-js").default;
-    (async () => {
-        const kinde = await createKindeClient({
-            client_id: "802d2594d04a4ec496b6ff9bf089ec3a",
-            domain: "https://brabentil.kinde.com",
-            redirect_uri: window.location.origin
-        });
-    })();
-
-    document.getElementById("login").addEventListener("click", async () => {
-        await kinde.login();
-        });
-        document.getElementById("register").addEventListener("click", async () => {
-        await kinde.register();
-        });
-
-    </script>
-        <script src="script.js"></script>
-        <script src="https://unpkg.com/scrollreveal"></script>
-
+    
+    
+    <script src="js/script.js"></script>
 </body>
 </html>
