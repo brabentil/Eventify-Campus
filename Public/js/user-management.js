@@ -1,4 +1,4 @@
-// Fetch users on page load
+// Fetch all users on page load
 document.addEventListener("DOMContentLoaded", function() {
     fetchUsers();
 });
@@ -11,115 +11,74 @@ async function fetchUsers() {
             throw new Error('Failed to fetch users');
         }
         const users = await response.json();
-        const userTableBody = document.getElementById('user-table-body');
-
-        // Clear current table rows
-        userTableBody.innerHTML = '';
-
-        // Insert new rows
-        users.forEach(user => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td>${user.role}</td>
-                <td>
-                    <button onclick="editUser('${user._id}')">Edit</button>
-                    <button onclick="deleteUser('${user._id}')">Delete</button>
-                </td>
-            `;
-            userTableBody.appendChild(row);
-        });
+        renderUsers(users);
     } catch (error) {
         console.error(error);
     }
 }
 
+// Render users into the table
+function renderUsers(users) {
+    const userTableBody = document.getElementById('user-table-body');
+    userTableBody.innerHTML = '';
+
+    users.forEach(user => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.role}</td>
+            <td>
+                <button onclick="editUser('${user._id}')">Edit</button>
+                <button onclick="deleteUser('${user._id}')">Delete</button>
+            </td>
+        `;
+        userTableBody.appendChild(row);
+    });
+}
+
 // Search users by name, email, or role
 function searchUsers() {
-    const query = document.getElementById('user-search').value;
-    fetch(`/api/users/search?q=${query}`)
+    const query = document.getElementById('user-search').value.toLowerCase();
+
+    fetch('/users')
         .then(response => response.json())
-        .then(data => {
-            const userTableBody = document.getElementById('user-table-body');
-            userTableBody.innerHTML = '';
-            data.forEach(user => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.role}</td>
-                    <td>
-                        <button onclick="editUser('${user._id}')">Edit</button>
-                        <button onclick="deleteUser('${user._id}')">Delete</button>
-                    </td>
-                `;
-                userTableBody.appendChild(row);
-            });
+        .then(users => {
+            const filteredUsers = users.filter(user => 
+                user.name.toLowerCase().includes(query) ||
+                user.email.toLowerCase().includes(query) ||
+                user.role.toLowerCase().includes(query)
+            );
+            renderUsers(filteredUsers);
         })
         .catch(error => console.error('Error searching users:', error));
 }
 
 // Filter users by role
 function filterUsersByRole() {
-    const role = document.getElementById('role-filter').value;
-    fetch(`/api/users/filter/role/${role}`)
-        .then(response => response.json())
-        .then(data => {
-            const userTableBody = document.getElementById('user-table-body');
-            userTableBody.innerHTML = '';
-            data.forEach(user => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.role}</td>
-                    <td>
-                        <button onclick="editUser('${user._id}')">Edit</button>
-                        <button onclick="deleteUser('${user._id}')">Delete</button>
-                    </td>
-                `;
-                userTableBody.appendChild(row);
-            });
-        })
-        .catch(error => console.error('Error filtering users:', error));
-}
+    const selectedRole = document.getElementById('role-filter').value;
 
-// Filter users by status
-function filterUsersByStatus() {
-    const status = document.getElementById('status-filter').value;
-    fetch(`/api/users/filter/status/${status}`)
+    fetch('/users')
         .then(response => response.json())
-        .then(data => {
-            const userTableBody = document.getElementById('user-table-body');
-            userTableBody.innerHTML = '';
-            data.forEach(user => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.role}</td>
-                    <td>
-                        <button onclick="editUser('${user._id}')">Edit</button>
-                        <button onclick="deleteUser('${user._id}')">Delete</button>
-                    </td>
-                `;
-                userTableBody.appendChild(row);
-            });
+        .then(users => {
+            const filteredUsers = selectedRole 
+                ? users.filter(user => user.role === selectedRole) 
+                : users;
+            renderUsers(filteredUsers);
         })
-        .catch(error => console.error('Error filtering users:', error));
+        .catch(error => console.error('Error filtering users by role:', error));
 }
 
 // Add a new user
 async function addNewUser(event) {
     event.preventDefault();
-    
+
     const name = document.getElementById('new-user-name').value;
     const email = document.getElementById('new-user-email').value;
     const role = document.getElementById('new-user-role').value;
-    
+
     const newUser = { name, email, role };
-    
+
     try {
         const response = await fetch('/users', {
             method: 'POST',
@@ -138,9 +97,8 @@ async function addNewUser(event) {
     }
 }
 
-// Edit a user (e.g., open a modal or new page)
+// Edit a user
 function editUser(userId) {
-    // Implement edit logic here
     alert('Edit user with ID: ' + userId);
 }
 
