@@ -1,6 +1,6 @@
 const express = require('express');
 const categoryController = require('../controllers/categoryController');
-const { isAuthenticated } = require('../middleware/auth');
+const { isAuthenticated,isAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -11,12 +11,12 @@ router.get('/', categoryController.getAllCategories,isAuthenticated);
 router.get('/:id', categoryController.getCategoryById,isAuthenticated);
 
 // Create a new category
-router.post('/', categoryController.createCategory,isAuthenticated);
+router.post('/', categoryController.createCategory,isAuthenticated,isAdmin);
 
 // Update an existing category
-router.put('/:id', categoryController.updateCategory,isAuthenticated);
+router.put('/:id', categoryController.updateCategory,isAuthenticated,isAdmin);
 
 // Delete a category
-router.delete('/:id', categoryController.deleteCategory,isAuthenticated);
+router.delete('/:id', categoryController.deleteCategory,isAuthenticated,isAdmin);
 
 module.exports = router;

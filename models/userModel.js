@@ -7,8 +7,8 @@ const UserSchema = new mongoose.Schema({
   profile_picture: { type: String }, // URL to the profile picture
   preferences: [
     {
-      category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }, // Reference to a category
-      notification_enabled: { type: Boolean, default: true } // Whether notifications are enabled
+      category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }, 
+      notification_enabled: { type: Boolean, default: true } 
     }
   ],
   created_at: { type: Date, default: Date.now },
