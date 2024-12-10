@@ -25,12 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMonth = new Date().getMonth();
     let currentYear = new Date().getFullYear();
 
-    // Fetch events from the backend
+    // Simulated user object from localStorage
+    const user = localStorage.getItem('user') 
+        ? JSON.parse(localStorage.getItem('user')) 
+        : { preferences: [] };
+
+    console.log(user);
+
+    // Fetch events from the backend and filter based on user preferences
     async function fetchEvents() {
         try {
             const response = await fetch('/events');
             if (!response.ok) throw new Error('Failed to fetch events');
-            events = await response.json();
+            const allEvents = await response.json();
+
+            const userCategoryIds = user.preferences.map(({ category }) => category);
+            console.log(userCategoryIds);
+
+
+            // Filter events based on user preferences
+            events = allEvents.filter(event => userCategoryIds.includes(event.category._id));
+            console.log(events);
             renderCalendar();
         } catch (error) {
             console.error('Error fetching events:', error);

@@ -22,13 +22,12 @@ loginForm.addEventListener('submit', async function (e) {
         const data = await response.json();
 
         if (response.status === 200 && data.message === 'Login successful') {
-            // Store the user object and token in localStorage
             localStorage.setItem('user', JSON.stringify(data.user)); 
             localStorage.setItem('token', data.token); 
 
           
             if (data.user.role === 'admin') {
-                window.location.href = '../admin/admin-dashboard'; 
+                window.location.href = '../admin/admin-dashboard.html'; 
             } else {
                 window.location.href = '../user/dashboard.html'; 
             }
