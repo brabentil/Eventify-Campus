@@ -22,11 +22,11 @@
             </div>
             <ul class="nav-links">
                 <li><a href="events.html">Events</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="calendar.html" class="active">Calendar</a></li>
                 <li><a href="profile.html">Profile</a></li>
             </ul>
             <a href="/logout">
-                <button class="btn logout-btn" >Logout</button>
+                <button class="btn logout-btn">Logout</button>
             </a>
         </nav>
     </header>
@@ -34,84 +34,51 @@
     <!-- Sidebar Section -->
     <aside class="sidebar">
         <ul class="sidebar-links">
-            <li><a href="dashboard.html" ><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="events.html" ><i class="fas fa-list"></i> Event Listings</a></li>
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="events.html"><i class="fas fa-list"></i> Event Listings</a></li>
             <li><a href="calendar.html" class="active"><i class="fas fa-calendar-alt"></i> Event Calendar</a></li>
-            <li><a href="profile.html" ><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Preferences</a></li>
             <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </aside>
 
     <!-- Main Content -->
-<main class="main-content">
-    <!-- Calendar Header -->
-    <section class="calendar-header">
-        <div class="dashboard-header">
+    <main class="main-content">
+        <!-- Calendar Overview Section -->
+        <section class="event-calendar-overview">
             <h1>Event Calendar</h1>
-            <p>View and manage all upcoming events in a calendar format. You can filter, search, and click on events to view more details.</p>
-        </div>
-    </section>
+            <p>View all your upcoming events in a calendar format. Click on specific dates to see event details.</p>
 
-    <!-- Filters Section -->
-    <section class="calendar-filters">
-        <div class="container">
-            <h2 class="section-title">Filter Events</h2>
-            <div class="filters-container">
-                <!-- Filter by Date Range -->
-                <div class="filter">
-                    <label for="event-start-date">Start Date</label>
-                    <input type="date" id="event-start-date" name="event-start-date">
-                </div>
-
-                <div class="filter">
-                    <label for="event-end-date">End Date</label>
-                    <input type="date" id="event-end-date" name="event-end-date">
-                </div>
-
-                <!-- Filter by Event Type -->
-                <div class="filter">
-                    <label for="event-type">Type</label>
-                    <select id="event-type" name="event-type">
-                        <option value="all">All Types</option>
-                        <option value="webinar">Webinar</option>
-                        <option value="conference">Conference</option>
-                        <option value="workshop">Workshop</option>
-                    </select>
-                </div>
-
-                <!-- Apply Filters Button -->
-                <div class="filter">
-                    <button class="btn btn-primary">Apply Filters</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Calendar Section -->
-    <section class="calendar-section">
-        <div class="container">
-            <h2 class="section-title">Upcoming Events</h2>
+            <!-- Calendar Container -->
             <div class="calendar-container">
-                <div id="calendar" class="calendar">
-                    <!-- Calendar Grid (Dynamically generated) -->
+                <!-- Calendar Controls -->
+                <div class="calendar-controls">
+                    <button class="btn btn-prev-month" id="prev-month">← Prev</button>
+                    <h2 class="calendar-month-year" id="month-year">December 2024</h2>
+                    <button class="btn btn-next-month" id="next-month">Next →</button>
+                </div>
+
+                <!-- Calendar Grid -->
+                <div class="calendar-grid">
+                    <!-- Weekdays Header -->
+                    <div class="calendar-header">
+                        <div class="calendar-day">Sun</div>
+                        <div class="calendar-day">Mon</div>
+                        <div class="calendar-day">Tue</div>
+                        <div class="calendar-day">Wed</div>
+                        <div class="calendar-day">Thu</div>
+                        <div class="calendar-day">Fri</div>
+                        <div class="calendar-day">Sat</div>
+                    </div>
+
+                    <!-- Calendar Days -->
+                    <div class="calendar-days" id="calendar-days">
+                        <!-- Calendar day cells will be dynamically populated by JavaScript -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Event Details Modal (Hidden by default) -->
-    <div class="event-modal" id="event-modal">
-        <div class="modal-content">
-            <span class="close-btn" id="close-modal">&times;</span>
-            <h3 id="event-modal-title">Event Title</h3>
-            <p id="event-modal-date">Event Date</p>
-            <p id="event-modal-description">Event Description</p>
-            <button class="btn btn-primary" id="event-modal-action">View Details</button>
-        </div>
-    </div>
-</main>
-
-
+        </section>
+    </main>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -119,8 +86,8 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="../../js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+   
+    <script src="../../js/calendar.js"></script>
 </body>
 
 </html>

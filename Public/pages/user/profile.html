@@ -25,7 +25,7 @@
                 <li><a href="calendar.html">Calendar</a></li>
                 <li><a href="profile.html">Profile</a></li>
             </ul>
-            <a href="/logout">
+            <a href="">
                 <button class="btn logout-btn" >Logout</button>
             </a>
                </nav>
@@ -37,90 +37,69 @@
             <li><a href="dashboard.html" ><i class="fas fa-home"></i> Dashboard</a></li>
             <li><a href="events.html" ><i class="fas fa-list"></i> Event Listings</a></li>
             <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Event Calendar</a></li>
-            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Preferences</a></li>
+            <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </aside>
 
-    <!-- Main Content -->
-<main class="main-content">
-    <!-- Profile Header -->
-    <section class="profile-header">
-        <div class="container">
-            <div class="profile-info">
-                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-                <div class="profile-details">
-                    <h1 class="profile-name">John Doe</h1>
-                    <p class="profile-job-title">Web Developer</p>
-                    <p class="profile-location">San Francisco, CA</p>
-                    <button class="btn btn-primary">Edit Profile</button>
-                </div>
+    <main class="main-content">
+        <section class="preferences-header">
+            <div class="container">
+                <h1 class="preferences-title">Event Category Preferences</h1>
+                <p>Manage your event category preferences below.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Profile Tabs -->
-    <section class="profile-tabs">
-        <div class="container">
-            <nav class="tabs-nav">
-                <ul>
-                    <li class="tab-item active"><a href="#overview" class="tab-link">Overview</a></li>
-                    <li class="tab-item"><a href="#settings" class="tab-link">Settings</a></li>
-                    <li class="tab-item"><a href="#activity" class="tab-link">Activity</a></li>
-                    <li class="tab-item"><a href="#events" class="tab-link">My Events</a></li>
-                </ul>
-            </nav>
-
-            <div class="tab-content">
-                <div id="overview" class="tab-pane active">
-                    <h2>Overview</h2>
-                    <p>Welcome to your profile page! Here you can view your personal information and manage your account settings.</p>
-                </div>
-                <div id="settings" class="tab-pane">
-                    <h2>Settings</h2>
-                    <p>Update your account settings, such as changing your email or password, and managing notifications.</p>
-                </div>
-                <div id="activity" class="tab-pane">
-                    <h2>Activity</h2>
-                    <p>View your recent activities, such as events attended, posts, and comments.</p>
-                </div>
-                <div id="events" class="tab-pane">
-                    <h2>My Events</h2>
-                    <p>Here you can see all the events you are attending or have attended.</p>
-                </div>
+        </section>
+    
+        <!-- Preferences Form Section -->
+        <section class="preferences-form">
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="event-category">Preferred Event Categories</label>
+                        <div class="category-options">
+                            <label class="category-option">
+                                <input type="checkbox" name="event-category" value="music">
+                                <span>Music</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="checkbox" name="event-category" value="sports">
+                                <span>Sports</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="checkbox" name="event-category" value="theater">
+                                <span>Theater</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="checkbox" name="event-category" value="technology">
+                                <span>Technology</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="checkbox" name="event-category" value="education">
+                                <span>Education</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="checkbox" name="event-category" value="art">
+                                <span>Art</span>
+                            </label>
+                        </div>
+                        <small>Select the categories you're most interested in.</small>
+                    </div>
+    
+                    <div class="form-group">
+                        <button id="preferences-btn" type="submit">Save Preferences</button>
+                    </div>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <!-- Recent Activity Section -->
-    <section class="recent-activity">
-        <div class="container">
-            <h2 class="section-title">Recent Activity</h2>
-            <div class="activity-feed">
-                <div class="activity-item">
-                    <p class="activity-text"><strong>John Doe</strong> commented on a post: "This is a great event!"</p>
-                    <span class="activity-time">2 hours ago</span>
-                </div>
-                <div class="activity-item">
-                    <p class="activity-text"><strong>John Doe</strong> attended the <strong>Tech Innovations Webinar</strong></p>
-                    <span class="activity-time">1 day ago</span>
-                </div>
-                <!-- More activity items can be added here -->
-            </div>
-        </div>
-    </section>
-</main>
-
-
-
+        </section>
+    </main>
+    
     <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2024 Eventify. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript -->
-    <script src="../../js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <script src="../../js/preferences.js"></script>
 </body>
 
 </html>

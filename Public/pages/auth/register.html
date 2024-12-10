@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Eventify</title>
+    <link rel="stylesheet" href="../../css/register.css">
+</head>
+
+<body class="register-body">
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="../../assets/logo-dark.png" alt="Eventify Logo" class="logo-img">
+    </div>
+
+    <!-- Sign Up Form Section -->
+    <div class="register-container">
+        <h1 class="register-title">Join Eventify!</h1>
+        <p class="register-subtitle">Create your account to get started.</p>
+
+        <!-- Sign Up Form -->
+        <form action="/register" method="POST" class="register-form" enctype="multipart/form-data">
+            <!-- Name Field -->
+            <div class="input-group">
+                <label for="name" class="input-label">Name</label>
+                <input type="text" id="name" name="name" class="input-field" required placeholder="Enter your name">
+            </div>
+
+            <!-- Email Field -->
+            <div class="input-group">
+                <label for="email" class="input-label">Email</label>
+                <input type="email" id="email" name="email" class="input-field" required placeholder="Enter your email">
+            </div>
+
+            <!-- Password Field -->
+            <div class="input-group">
+                <label for="password" class="input-label">Password</label>
+                <input type="password" id="password" name="password" class="input-field" required placeholder="Enter your password">
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="input-group">
+                <label for="confirm-password" class="input-label">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" class="input-field" required placeholder="Confirm your password">
+            </div>
+
+            <!-- Profile Picture Field -->
+            <div class="input-group">
+                <label for="profile-picture" class="input-label">Profile Picture (Optional)</label>
+                <input type="file" id="profile-picture" name="profile_picture" class="input-field" accept="image/*">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Sign Up</button>
+        </form>
+
+        <!-- Links Section -->
+        <div class="links-section">
+            <p class="links-text">Already have an account? <a href="/login" class="login-link">Log in here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
