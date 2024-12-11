@@ -93,6 +93,28 @@
 }
 
 /* Events List Section */
+
+/* Spinner Styling */
+.spinner {
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    color: var(--pink);
+    font-size: 3rem;
+    display: none; /* Initially hidden */
+    text-align: center;
+}
+
+/* Spinner Text for Accessibility (Optional) */
+.spinner-text {
+    margin-top: var(--spacing-unit);
+    color: var(--text-dark);
+    font-size: var(--font-size-default);
+}
+
 .events-list {
     margin-top: 2rem;
 }

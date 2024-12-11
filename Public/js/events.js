@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventDateInput = document.getElementById('event-date');
     const eventSearchInput = document.getElementById('event-search');
     const eventsGrid = document.querySelector('.events-grid');
+    const spinner = document.getElementById('loading-spinner'); // Spinner element
 
     let events = [];
     let userPreferences = [];
@@ -14,9 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     userPreferences = user.preferences.map(pref => pref.category);
 
+    // Show spinner function
+    function showSpinner() {
+        spinner.style.display = 'flex'; // Show the spinner
+    }
+
+    // Hide spinner function
+    function hideSpinner() {
+        spinner.style.display = 'none'; // Hide the spinner
+    }
+
     // Fetch categories and populate dropdown with preferred categories
     async function fetchCategories() {
         try {
+            showSpinner(); // Show the spinner while fetching data
+
             const response = await fetch('/categories');
             if (!response.ok) throw new Error('Failed to fetch categories');
             const categories = await response.json();
@@ -36,12 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } catch (error) {
             console.error('Error fetching categories:', error);
+        } finally {
+            hideSpinner(); // Hide the spinner after categories are fetched
         }
     }
 
     // Fetch events and render
     async function fetchEvents() {
         try {
+            showSpinner(); // Show the spinner while fetching data
+
             const response = await fetch('/events');
             if (!response.ok) throw new Error('Failed to fetch events');
             const allEvents = await response.json();
@@ -52,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             renderEvents(events);
         } catch (error) {
             console.error('Error fetching events:', error);
+        } finally {
+            hideSpinner(); // Hide the spinner after events are fetched
         }
     }
 
@@ -71,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="event-details">
                     <h3 class="event-title">${event.name}</h3>
                     <p class="event-date">${new Date(event.date).toLocaleString()}</p>
-                    <p class="event-type">${event.type}</p>
+                    <p class="event-type">${event.category.name}</p>
                     <p class="event-description">${event.description || 'No description available'}</p>
                 </div>
                 <div class="event-actions">
