@@ -1,9 +1,9 @@
-import RSVP from '../models/RSVPModel.js';
-import Event from '../models/EventModel.js';
-import User from '../models/userModel.js';
+const RSVP = require('../models/RSVPModel.js');
+const Event = require('../models/EventModel.js');
+const User = require('../models/userModel.js');
 
 // Create a new RSVP
-export const createRSVP = async (req, res) => {
+const createRSVP = async (req, res) => {
     try {
         const { userId, eventId } = req.body;
 
@@ -28,7 +28,7 @@ export const createRSVP = async (req, res) => {
 };
 
 // Get all RSVPs
-export const getAllRSVPs = async (req, res) => {
+const getAllRSVPs = async (req, res) => {
     try {
         const rsvps = await RSVP.find().populate('user').populate('event');
         res.status(200).json(rsvps);
@@ -38,7 +38,7 @@ export const getAllRSVPs = async (req, res) => {
 };
 
 // Get a single RSVP by ID
-export const getRSVPById = async (req, res) => {
+const getRSVPById = async (req, res) => {
     try {
         const rsvp = await RSVP.findById(req.params.id).populate('user').populate('event');
         if (!rsvp) {
@@ -51,7 +51,7 @@ export const getRSVPById = async (req, res) => {
 };
 
 // Update an RSVP
-export const updateRSVP = async (req, res) => {
+const updateRSVP = async (req, res) => {
     try {
         const { userId, eventId } = req.body;
 
@@ -80,7 +80,7 @@ export const updateRSVP = async (req, res) => {
 };
 
 // Delete an RSVP
-export const deleteRSVP = async (req, res) => {
+const deleteRSVP = async (req, res) => {
     try {
         const deletedRSVP = await RSVP.findByIdAndDelete(req.params.id);
         if (!deletedRSVP) {
@@ -90,4 +90,12 @@ export const deleteRSVP = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+};
+
+module.exports = {
+    createRSVP,
+    getAllRSVPs,
+    getRSVPById,
+    updateRSVP,
+    deleteRSVP
 };
