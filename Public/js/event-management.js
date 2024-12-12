@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('event-status-filter').addEventListener('change', filterEvents);
     document.querySelector('.search-bar button').addEventListener('click', searchEvents);
     document.querySelector('.add-new-event form').addEventListener('submit', addNewEvent);
+    
 });
 
 // Fetch and populate event categories in dropdowns

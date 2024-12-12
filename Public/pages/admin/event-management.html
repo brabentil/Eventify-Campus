@@ -24,8 +24,8 @@
                 <li><a href="event-management.html">Events</a></li>
                 <li><a href="analytics.html">Analytics</a></li>
             </ul>
-            <a href="/logout">
-                <button class="btn logout-btn" >Logout</button>
+            <a href="../auth/logout.html">
+                <button class="btn logout-btn">Logout</button>
             </a>
         </nav>
     </header>
@@ -33,11 +33,12 @@
     <!-- Sidebar Section -->
     <aside class="sidebar">
         <ul class="sidebar-links">
-            <li><a href="admin-dashboard.html" ><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="admin-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
             <li><a href="event-management.html" class="active"><i class="fas fa-calendar-plus"></i> Event Management</a></li>
+            <li><a href="user-management.html" ><i class="fas fa-users"></i> User Management</a></li>
             <li><a href="calendar-overview.html"><i class="fas fa-calendar-alt"></i> Calendar Overview</a></li>
             <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
-            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="../auth/logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </aside>
 
@@ -47,7 +48,7 @@
             <h1>Event Management Dashboard</h1>
             <p>Manage all your events efficiently with real-time updates and tools.</p>
         </section>
-    
+
         <!-- Event Search and Filters -->
         <section class="event-search-filters">
             <h2>Search and Filter Events</h2>
@@ -72,8 +73,8 @@
                 </select>
             </div>
         </section>
-    
-        <!-- Event List -->
+
+        <!-- Event List with Pagination -->
         <section class="event-list">
             <h2>Event List</h2>
             <div class="event-list-table">
@@ -87,34 +88,20 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tech Conference 2024</td>
-                            <td>Jan 15, 2024</td>
-                            <td>Conference</td>
-                            <td>Upcoming</td>
-                            <td>
-                                <button class="btn">View</button>
-                                <button class="btn">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>AI Workshop</td>
-                            <td>Dec 12, 2023</td>
-                            <td>Workshop</td>
-                            <td>Ongoing</td>
-                            <td>
-                                <button class="btn">View</button>
-                                <button class="btn">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                    <tbody id="event-table-body">
+                        <!-- Events will be dynamically populated here -->
                     </tbody>
                 </table>
             </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls">
+                <button class="btn pagination-btn" id="prev-page">Previous</button>
+                <span id="page-info">Page 1 of X</span>
+                <button class="btn pagination-btn" id="next-page">Next</button>
+            </div>
         </section>
-    
+
         <!-- Add New Event -->
         <section class="add-new-event">
             <h2>Add New Event</h2>
@@ -147,7 +134,7 @@
                 <button class="btn" type="submit">Add Event</button>
             </form>
         </section>
-    
+
         <!-- Event Activity Log -->
         <section class="event-activity-log">
             <h2>Event Activity Log</h2>
@@ -156,9 +143,6 @@
             </div>
         </section>
     </main>
-    
-
-    
 
     <!-- Footer Section -->
     <footer class="footer">

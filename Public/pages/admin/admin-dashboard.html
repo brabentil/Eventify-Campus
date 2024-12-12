@@ -24,7 +24,7 @@
                 <li><a href="event-management.html">Events</a></li>
                 <li><a href="analytics.html">Analytics</a></li>
             </ul>
-            <a href="/logout">
+            <a href="../auth/logout.html">
                 <button class="btn logout-btn" >Logout</button>
             </a>
         </nav>
@@ -35,9 +35,10 @@
         <ul class="sidebar-links">
             <li><a href="admin-dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
             <li><a href="event-management.html"><i class="fas fa-calendar-plus"></i> Event Management</a></li>
+            <li><a href="user-management.html" ><i class="fas fa-users"></i> User Management</a></li>
             <li><a href="calendar-overview.html"><i class="fas fa-calendar-alt"></i> Calendar Overview</a></li>
             <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
-            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="../auth/logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </aside>
 
@@ -45,7 +46,7 @@
     <main class="main-content">
         <!-- Overview Section -->
         <section class="dashboard-header">
-            <h1>Welcome, Admin!</h1>
+            <h1>Welcome, <span id="user-name">[Admin]</span>!</h1>
             <p>Monitor and manage your platform effortlessly with Eventify.</p>
         </section>
 
@@ -74,24 +75,6 @@
             </div>
         </section>
 
-        <!-- Recent Activities Section -->
-        <section class="dashboard-recent-activity">
-            <h2>Recent Activities</h2>
-            <div class="recent-activity-list">
-                <div class="activity-item">
-                    <p><i class="fas fa-user-check"></i> Approved registration for user *John Doe*.</p>
-                    <span class="activity-timestamp">30 minutes ago</span>
-                </div>
-                <div class="activity-item">
-                    <p><i class="fas fa-calendar-check"></i> Approved event *Tech Conference 2024*.</p>
-                    <span class="activity-timestamp">2 hours ago</span>
-                </div>
-                <div class="activity-item">
-                    <p><i class="fas fa-user-slash"></i> Suspended user account *Jane Smith*.</p>
-                    <span class="activity-timestamp">1 day ago</span>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer Section -->
