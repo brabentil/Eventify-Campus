@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Simulated user object from localStorage
     const user = localStorage.getItem('user') 
         ? JSON.parse(localStorage.getItem('user')) 
-        : { preferences: [], _id: 'testUserId' }; // Example user ID
+        : { preferences: [], _id: 'testUserId' }; 
+        console.log(user);
 
     // Fetch events from the backend and filter based on user preferences
     async function fetchEvents() {
@@ -104,18 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Attach RSVP button listeners
         const rsvpButtons = modal.querySelectorAll('.rsvp-btn');
         rsvpButtons.forEach(button => {
-            button.addEventListener('click', () => handleRSVP(button.dataset.event));
+            console.log(button.dataset);
+            button.addEventListener('click', () => handleRSVP(button.dataset.eventId));
         });
     }
 
     // Handle RSVP functionality
     async function handleRSVP(eventID) {
         try {
+            console.log('Event ID:', eventID);
+            console.log('User ID:', user.id);
             // Check if the user is already RSVP'd
             const response = await fetch('/rsvps', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ event: eventID, user: user._id })
+                body: JSON.stringify({ event: eventID, user: user.id })
             });
 
             const result = await response.json();
@@ -125,19 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Update the event on success
-            const event = events.find(e => e._id === eventId);
+            const event = events.find(e => e._id === eventID);
             event.attendees.push(user._id);
             event.available_seats -= 1;
 
             // Send updated event object to the server
-            await fetch(`/events/${eventId}/`, {
+            await fetch(`/events/${eventID}/`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ attendees: event.attendees, available_seats: event.available_seats })
             });
 
             // Update the modal UI dynamically
-            const eventDetail = modal.querySelector(`#event-${eventId}`);
+            const eventDetail = modal.querySelector(`#event-${eventID}`);
             const availableSeatsEl = eventDetail.querySelector('p:nth-child(5)');
             availableSeatsEl.textContent = `Available Seats: ${event.available_seats}`;
 

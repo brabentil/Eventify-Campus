@@ -1,23 +1,31 @@
 const RSVP = require('../models/RSVPModel.js');
 const Event = require('../models/EventModel.js');
 const User = require('../models/userModel.js');
+const { cp } = require('fs');
 
 // Create a new RSVP
 const createRSVP = async (req, res) => {
     try {
-        const { userId, eventId } = req.body;
+        const { user, event } = req.body;
+        console.log(user);
 
         // Check if the user and event exist
-        const user = await User.findById(userId);
-        const event = await Event.findById(eventId);
+        const userObj = await User.findById(user);
+        const eventObj = await Event.findById(event);
+        console.log(userObj);
 
-        if (!user || !event) {
-            return res.status(404).json({ message: 'User or Event not found' });
+        if (!userObj) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
+        if ( !eventObj) {
+            return res.status(404).json({ message: 'Event not found' });
+        }
+
+
         const newRSVP = new RSVP({
-            user: userId,
-            event: eventId,
+            user: user,
+            event: event,
         });
 
         const savedRSVP = await newRSVP.save();

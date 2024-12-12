@@ -3,7 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventDateInput = document.getElementById('event-date');
     const eventSearchInput = document.getElementById('event-search');
     const eventsGrid = document.querySelector('.events-grid');
-    const spinner = document.getElementById('loading-spinner'); // Spinner element
+    const spinner = document.getElementById('loading-spinner');
+
+    // Modal elements
+    const modal = document.createElement('div');
+    modal.className = 'event-modal';
+    modal.id = 'event-modal';
+    modal.style.display = 'none';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h3 id="event-modal-title">Event Details</h3>
+            <div id="event-modal-details"></div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    const closeModalBtn = modal.querySelector('#close-modal');
+    const modalTitle = modal.querySelector('#event-modal-title');
+    const modalDetails = modal.querySelector('#event-modal-details');
 
     let events = [];
     let userPreferences = [];
@@ -17,29 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show spinner function
     function showSpinner() {
-        spinner.style.display = 'flex'; // Show the spinner
+        spinner.style.display = 'flex';
     }
 
     // Hide spinner function
     function hideSpinner() {
-        spinner.style.display = 'none'; // Hide the spinner
+        spinner.style.display = 'none';
     }
 
     // Fetch categories and populate dropdown with preferred categories
     async function fetchCategories() {
         try {
-            showSpinner(); // Show the spinner while fetching data
+            showSpinner();
 
             const response = await fetch('/categories');
             if (!response.ok) throw new Error('Failed to fetch categories');
             const categories = await response.json();
 
-            // Filter categories by user preferences
             const preferredCategories = categories.filter(category =>
                 userPreferences.includes(category._id)
             );
 
-            // Populate dropdown
             eventTypeSelect.innerHTML = '<option value="all">All Types</option>';
             preferredCategories.forEach(category => {
                 const option = document.createElement('option');
@@ -50,27 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error fetching categories:', error);
         } finally {
-            hideSpinner(); // Hide the spinner after categories are fetched
+            hideSpinner();
         }
     }
 
     // Fetch events and render
     async function fetchEvents() {
         try {
-            showSpinner(); // Show the spinner while fetching data
+            showSpinner();
 
             const response = await fetch('/events');
             if (!response.ok) throw new Error('Failed to fetch events');
             const allEvents = await response.json();
 
-            // Filter events based on user preferences
             events = allEvents.filter(event => userPreferences.includes(event.category._id));
 
             renderEvents(events);
         } catch (error) {
             console.error('Error fetching events:', error);
         } finally {
-            hideSpinner(); // Hide the spinner after events are fetched
+            hideSpinner();
         }
     }
 
@@ -94,12 +109,74 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="event-description">${event.description || 'No description available'}</p>
                 </div>
                 <div class="event-actions">
-                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-primary" data-event-id="${event._id}">View Details</button>
                 </div>
             `;
+            
+            eventCard.querySelector('button').addEventListener('click', () => {
+                console.log('Button clicked for event:', event);
+                showModal(event);
+            });
+
             eventsGrid.appendChild(eventCard);
         });
     }
+
+    // Show the modal with event details and RSVP button
+    function showModal(event) {
+        console.log('Opening modal for event:', event);
+
+        modalTitle.textContent = event.name;
+        modalDetails.innerHTML = `
+            <p><strong>Date:</strong> ${new Date(event.date).toLocaleString()}</p>
+            <p><strong>Category:</strong> ${event.category.name}</p>
+            <p><strong>Description:</strong> ${event.description || 'No description available'}</p>
+            <p><strong>Location:</strong> ${event.location || 'TBD'}</p>
+            <p><strong>Available Seats:</strong> ${event.available_seats}</p>
+            ${event.available_seats > 0 ? `<button class="rsvp-btn" data-event-id="${event._id}">RSVP</button>` : '<p>No seats available</p>'}
+        `;
+
+        modal.style.display = 'block';
+
+        const rsvpButton = modal.querySelector('.rsvp-btn');
+        if (rsvpButton) {
+            rsvpButton.addEventListener('click', () => handleRSVP(event._id));
+        }
+    }
+
+    // Handle RSVP functionality
+    async function handleRSVP(eventID) {
+        try {
+            console.log('RSVP for event ID:', eventID);
+
+            const response = await fetch('/rsvps', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ event: eventID, user: user.id })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Failed to RSVP');
+            }
+
+            const event = events.find(e => e._id === eventID);
+            event.available_seats -= 1;
+
+            alert('RSVP successful!');
+            renderEvents(events);
+            modal.style.display = 'none';
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    // Close modal
+    closeModalBtn.addEventListener('click', () => {
+        console.log('Closing modal');
+        modal.style.display = 'none';
+    });
 
     // Filter events based on user input
     function filterEvents() {
