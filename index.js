@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Serve static files
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, 'Public');
 app.use(express.static(publicDir));
 console.log('Static files served from:', publicDir);
 
