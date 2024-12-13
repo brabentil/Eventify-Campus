@@ -11,33 +11,32 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT;
-
-app.use(express.static('public'));
-
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
 
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Connect to MongoDB
 connectDB(); // Call the connectDB function
 
+// Routes
 app.use('/events', eventRoutes);
 app.use('/users', userRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/notifications', notificationRoutes);
 app.use('/rsvps', RSVPRoutes);
 
-// Routes
+// Root route
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: './public' }); 
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); 
 });
 
-
-
-
+// Unauthorized route
 app.get('/unauthorized', (req, res) => {
-  res.sendFile('unauthorizedPage.html', { root: './public/pages' });
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'unauthorizedPage.html'));
 });
 
 console.log('Hello World');
@@ -46,6 +45,3 @@ console.log('Hello World');
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-module.exports = app; 
-
