@@ -173,3 +173,13 @@ async function addNewEvent(event) {
         alert("An error occurred while creating the event. Please try again.");
     }
 }
+function logout(event) {
+    event.preventDefault();
+    const confirmation = confirm("Are you sure you want to logout?");
+    if (confirmation) {
+        window.location.href =  window.location.href = '../auth/logout.html';
+    } else {
+        console.log("Logout cancelled");
+    }
+}
+

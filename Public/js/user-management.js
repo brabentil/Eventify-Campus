@@ -121,7 +121,7 @@ function logout(event) {
     event.preventDefault();
     const confirmation = confirm("Are you sure you want to logout?");
     if (confirmation) {
-        window.location.href = event.target.href;
+        window.location.href =  window.location.href = '../auth/logout.html';
     } else {
         console.log("Logout cancelled");
     }
