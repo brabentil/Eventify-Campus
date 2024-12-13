@@ -40,6 +40,7 @@ app.get('/unauthorized', (req, res) => {
   res.sendFile('unauthorizedPage.html', { root: './public/pages' });
 });
 
+console.log('Hello World');
 
 // Start the server
 app.listen(port, () => {
