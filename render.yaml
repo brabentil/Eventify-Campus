@@ -1,4 +1,0 @@
-static_site:
-  name: Eventify
-  buildCommand: npm run build # or any appropriate build command
-  publishDirectory: /Public # Specify the folder containing your static files like index.html
