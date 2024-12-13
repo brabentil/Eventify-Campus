@@ -60,13 +60,12 @@ exports.getAllUsers = async (req, res) => {
     }
 };
 
-
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Check if user exists
-        const user = await User.findOne({ email });
+        // Check if user exists (case insensitive search)
+        const user = await User.findOne({ email: { $regex: new RegExp(`^${email}$`, 'i') } });
         if (!user) {
             return res.status(400).json({ message: 'Invalid email or password' });
         }

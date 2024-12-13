@@ -103,3 +103,12 @@ document.getElementById('preferences-btn').addEventListener('click', handleSaveP
 
 document.addEventListener('DOMContentLoaded', initializePage);
 
+function logout(event) {
+    event.preventDefault();
+    const confirmation = confirm("Are you sure you want to logout?");
+    if (confirmation) {
+        window.location.href = event.target.href;
+    } else {
+        console.log("Logout cancelled");
+    }
+}
