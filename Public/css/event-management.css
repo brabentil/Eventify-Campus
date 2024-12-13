@@ -227,7 +227,61 @@ h2 {
 .event-activity-log textarea:focus {
     outline: none;
     border-color: #6B4F96;
+
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+input, textarea, select {
+    padding: 0.8rem;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    font-size: var(--font-size-default);
+    background: var(--white);
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--purple);
+}
+
+button {
+    padding: 0.8rem;
+    background: var(--btn-primary-bg);
+    color: var(--btn-text);
+    font-size: var(--font-size-default);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: var(--btn-primary-hover);
+}
+
+span {
+    color: var(--pink);
+    font-weight: bold;
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {

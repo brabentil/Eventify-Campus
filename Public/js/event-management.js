@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('event-status-filter').addEventListener('change', filterEvents);
     document.querySelector('.search-bar button').addEventListener('click', searchEvents);
     document.querySelector('.add-new-event form').addEventListener('submit', addNewEvent);
-    
 });
 
 // Fetch and populate event categories in dropdowns
@@ -25,7 +24,7 @@ async function populateEventCategories() {
 
         categories.forEach(category => {
             const option = document.createElement('option');
-            option.value = category.id;
+            option.value = category._id;
             option.textContent = category.name;
 
             categoryFilter.appendChild(option.cloneNode(true));
@@ -59,12 +58,10 @@ function renderEventList(events) {
         row.innerHTML = `
             <td>${event.name}</td>
             <td>${new Date(event.date).toLocaleDateString()}</td>
-            <td>${event.category}</td>
+            <td>${event.category.name}</td>
             <td>${event.status}</td>
             <td>
-                <button class="btn" onclick="viewEvent('${event.id}')">View</button>
-                <button class="btn" onclick="editEvent('${event.id}')">Edit</button>
-                <button class="btn btn-danger" onclick="deleteEvent('${event.id}')">Delete</button>
+                <button class="btn btn-danger" onclick="deleteEvent('${event._id}')">Delete</button>
             </td>
         `;
         eventTableBody.appendChild(row);
@@ -102,43 +99,6 @@ async function searchEvents() {
     }
 }
 
-// Add a new event
-async function addNewEvent(event) {
-    event.preventDefault();
-
-    const name = document.getElementById('event-name').value.trim();
-    const date = document.getElementById('event-date').value;
-    const category = document.getElementById('event-category').value;
-    const status = document.getElementById('event-status').value;
-
-    const newEvent = { name, date, category, status };
-
-    try {
-        const response = await fetch('/events', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newEvent),
-        });
-
-        if (!response.ok) throw new Error('Failed to add new event');
-
-        fetchEventList(); // Refresh event list
-        document.querySelector('.add-new-event form').reset();
-    } catch (error) {
-        console.error('Error adding new event:', error);
-    }
-}
-
-// Placeholder for view event
-function viewEvent(eventId) {
-    alert(`View event with ID: ${eventId}`);
-}
-
-// Placeholder for edit event
-function editEvent(eventId) {
-    alert(`Edit event with ID: ${eventId}`);
-}
-
 // Delete an event
 async function deleteEvent(eventId) {
     try {
@@ -148,5 +108,68 @@ async function deleteEvent(eventId) {
         fetchEventList(); // Refresh event list
     } catch (error) {
         console.error('Error deleting event:', error);
+    }
+}
+
+// Add a new event
+async function addNewEvent(event) {
+    event.preventDefault();
+
+    // Gather form data
+    const name = document.getElementById('event-name').value.trim();
+    const description = document.getElementById('event-description').value.trim();
+    const date = document.getElementById('event-date').value;
+    const time = document.getElementById('event-time').value;
+    const location = document.getElementById('event-location').value.trim();
+    const category = document.getElementById('event-category').value;
+    const capacity = parseInt(document.getElementById('event-capacity').value, 10);
+    const status = document.getElementById('event-status').value;
+
+    // Retrieve user data from local storage
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || !user.id) {
+        alert("User not authenticated. Please log in.");
+        return;
+    }
+
+    // Validation
+    if (!name || !date || !time || !location || !category || isNaN(capacity)) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+
+    // Prepare event data
+    const newEvent = {
+        name,
+        description,
+        date,
+        time,
+        location,
+        category,
+        capacity,
+        available_seats: capacity,
+        status,
+        created_by: user.id
+    };
+
+    try {
+        // Send a POST request to create the event
+        const response = await fetch('/events', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newEvent),
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            throw new Error(errorResponse.message || 'Failed to create event');
+        }
+
+        alert("Event created successfully!");
+        document.getElementById('event-form').reset(); // Clear form
+        fetchEventList(); // Update the event list dynamically if function exists
+    } catch (error) {
+        console.error('Error creating event:', error);
+        alert("An error occurred while creating the event. Please try again.");
     }
 }

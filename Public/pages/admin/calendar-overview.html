@@ -25,7 +25,7 @@
                 <li><a href="analytics.html">Analytics</a></li>
             </ul>
             <a href="../auth/logout.html">
-                <button class="btn logout-btn" >Logout</button>
+                <button class="btn logout-btn">Logout</button>
             </a>
         </nav>
     </header>
@@ -33,9 +33,9 @@
     <!-- Sidebar Section -->
     <aside class="sidebar">
         <ul class="sidebar-links">
-            <li><a href="admin-dashboard.html" ><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="event-management.html" ><i class="fas fa-calendar-plus"></i> Event Management</a></li>
-            <li><a href="user-management.html" ><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="admin-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="event-management.html"><i class="fas fa-calendar-plus"></i> Event Management</a></li>
+            <li><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
             <li><a href="calendar-overview.html" class="active"><i class="fas fa-calendar-alt"></i> Calendar Overview</a></li>
             <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
             <li><a href="../auth/logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -72,33 +72,7 @@
     
                     <!-- Calendar Days -->
                     <div class="calendar-days">
-                        <!-- Day 1 -->
-                        <div class="calendar-day-cell" data-date="2024-12-01">
-                            <span class="calendar-day-number">1</span>
-                            <div class="event-marker">
-                                <span class="event-count">2</span>
-                            </div>
-                        </div>
-                        <!-- Day 2 -->
-                        <div class="calendar-day-cell" data-date="2024-12-02">
-                            <span class="calendar-day-number">2</span>
-                        </div>
-                        <!-- More days here -->
-                        <!-- Day 15 -->
-                        <div class="calendar-day-cell" data-date="2024-12-15">
-                            <span class="calendar-day-number">15</span>
-                            <div class="event-marker">
-                                <span class="event-count">1</span>
-                            </div>
-                        </div>
-                        <!-- Day 16 -->
-                        <div class="calendar-day-cell" data-date="2024-12-16">
-                            <span class="calendar-day-number">16</span>
-                            <div class="event-marker">
-                                <span class="event-count">3</span>
-                            </div>
-                        </div>
-                        <!-- More days here -->
+                        <!-- Days will be populated dynamically with JavaScript -->
                     </div>
                 </div>
     
@@ -109,9 +83,6 @@
             </div>
         </section>
     </main>
-    
-
-    
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -119,7 +90,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="../../js/main.js"></script>
+    <script src="../../js/admin-calendar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
 </body>
 
