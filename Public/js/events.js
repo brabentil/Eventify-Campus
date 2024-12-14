@@ -161,8 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(result.message || 'Failed to RSVP');
             }
 
-            const event = events.find(e => e._id === eventID);
-            event.available_seats -= 1;
 
             alert('RSVP successful!');
             renderEvents(events);
