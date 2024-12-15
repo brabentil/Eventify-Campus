@@ -179,7 +179,20 @@ Endpoints for **user management** include user creation, login, and deletion ope
 
 ## Screenshots
 
-Add some relevant UI screenshots to showcase the platform's design and functionality.
+#### Home Page
+![Home](Public/assets/ui/home.png)
+
+#### Features section
+![Features](Public/assets/ui/features.png)
+
+#### Login Page
+![Login](Public/assets/ui/login.png)
+
+#### User Dashboard
+![User Dashboard](Public/assets/ui/user-dashboard.png)
+
+#### Event Calendar
+![Event Calendar](Public/assets/ui/event-calendar.png)
 
 ---
 
