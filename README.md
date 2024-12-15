@@ -23,7 +23,7 @@ Eventify is a campus event management system that allows students and staff to v
 ## Deployment Link
 
 You can access Eventify live on Render:
-[Eventify on Render](https://your-render-deployment-link.com)
+[Eventify on Render](https://eventify-campus.onrender.com/)
 
 ---
 
