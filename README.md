@@ -216,4 +216,4 @@ Endpoints for **user management** include user creation, login, and deletion ope
 
 ---
 
-Thank you for using Eventify! If you encounter any issues, feel free to [open an issue on GitHub](https://github.com/your-username/eventify/issues).
+Thank you for using Eventify! 
