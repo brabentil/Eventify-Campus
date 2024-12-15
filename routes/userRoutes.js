@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.post('/register', userController.register);
 router.post('/login', userController.login);
-router.get('/profile',  userController.getProfile);
+router.get('/:id',  userController.getProfile);
 router.put('/:id',  userController.updateProfile);
-router.delete('/account', userController.deleteAccount);
+router.delete('/:id', userController.deleteAccount);
 router.get('/', userController.getAllUsers);
 
 module.exports = router;

@@ -103,7 +103,7 @@ exports.logout = (req, res) => {
 // Get user profile
 exports.getProfile = async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.params.id).select('-password');
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -112,6 +112,7 @@ exports.getProfile = async (req, res) => {
         res.status(500).json({ message: 'Server error', error });
     }
 };
+
 
 exports.updateProfile = async (req, res) => {
     try {
@@ -135,7 +136,7 @@ exports.updateProfile = async (req, res) => {
 // Delete user account
 exports.deleteAccount = async (req, res) => {
     try {
-        const user = await User.findByIdAndDelete(req.user.id);
+        const user = await User.findByIdAndDelete(req.params.id);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
