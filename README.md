@@ -32,10 +32,12 @@ You can access Eventify live on Render:
 If authentication is required, you can use the following test login credentials:
 
 ### Admin Functions
-- **Username:** admin@example.com
+
+- **Username:** [admin@example.com](mailto:admin@example.com)
 - **Password:** admin123
 
 ### User Functions
+
 - Create an account using the registration form on the platform.
 
 ---
@@ -75,6 +77,7 @@ cd eventify
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
