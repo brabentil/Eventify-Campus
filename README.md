@@ -1,6 +1,6 @@
 # Eventify
 
-Eventify is a campus event management system that allows students and staff to view, create, and register for campus events such as workshops, seminars, and club activities. The platform includes features like RSVP, event calendar, and notifications to ensure seamless event management.
+Eventify is a comprehensive campus event management system designed for students and staff to seamlessly view, create, and register for various campus events such as workshops, seminars, and club activities. The platform integrates RSVP functionality, an event calendar, and notifications to ensure efficient event coordination.
 
 ---
 
@@ -12,64 +12,57 @@ Eventify is a campus event management system that allows students and staff to v
 - [Tech Stack](#tech-stack)
 - [Installation Instructions](#installation-instructions)
 - [API Documentation](#api-documentation)
-  - [Category Endpoints](#1-categories-endpoints)
-  - [Event Endpoints](#2-events-endpoints)
-  - [RSVP Endpoints](#3-rsvps-endpoints)
-  - [User Endpoints](#4-user-endpoints)
+  - [Category Endpoints](#categories-endpoints)
+  - [Event Endpoints](#event-endpoints)
+  - [RSVP Endpoints](#rsvp-endpoints)
+  - [User Endpoints](#user-endpoints)
 - [Screenshots](#screenshots)
 
 ---
 
 ## Deployment Link
 
-You can access Eventify live on Render:
+Access Eventify live via the following link:
 [Eventify on Render](https://eventify-campus.onrender.com/)
 
 ---
 
 ## Sample Login Details
 
-If authentication is required, you can use the following test login credentials:
-
 ### Admin Functions
-
-- **Username:** [admin@example.com](mailto:admin@example.com)
+- **Email:** [admin@example.com](mailto:admin@example.com)
 - **Password:** admin123
 
 ### User Functions
-
-- Create an account using the registration form on the platform.
+- Create an account using the registration form available on the platform.
 
 ---
-
 ## Feature Checklist
 
-### User Registration & Event Preferences
-- [x] User registration and login functionality implemented.
-- [x] Users can set preferences for event types.
-
-### Event Listings & RSVP
-- [x] Display upcoming events with details, including:
-  - Event name
-  - Date and time
-  - Location
-  - Available seats
-- [x] Users can RSVP for events:
-  - Updates available seats in real-time.
-  - Stores RSVP'd events in the user's profile.
-
-### Event Creation (Admin Only)
-- [x] Admin-exclusive feature to create events.
-- [x] Admins can provide event details, including:
-  - Event name
-  - Date and location
-  - Description
-  - Event capacity
-- [x] Each event is assigned a unique ID.
-
-### Event Calendar View
-- [x] Integrated calendar view to display events by date.
-- [x] Users can filter events based on their preferences.
+| **Feature**                          | **Details**                                                                                            | **Status**        |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------|-------------------|
+| **User Registration & Event Preferences** |                                                                                                        | ✅ Completed       |
+|                                      | User registration and login functionality implemented.                                                 | ✅ Completed       |
+|                                      | Users can set preferences for specific event types.                                                    | ✅ Completed       |
+| **Event Listings & RSVP**            |                                                                                                        | ✅ Completed       |
+|                                      | Display of upcoming events with the following details:                                                 | ✅ Completed       |
+|                                      | - Event name                                                                                           | ✅ Completed       |
+|                                      | - Date and time                                                                                        | ✅ Completed       |
+|                                      | - Location                                                                                            | ✅ Completed       |
+|                                      | - Available seats                                                                                     | ✅ Completed       |
+|                                      | Users can RSVP for events:                                                                             | ✅ Completed       |
+|                                      | - Updates available seats in real-time.                                                               | ✅ Completed       |
+|                                      | - Stores RSVP'd events in the user's profile.                                                         | ✅ Completed       |
+| **Event Creation (Admin Only)**      |                                                                                                        | ✅ Completed       |
+|                                      | Admins can create events by providing:                                                                 | ✅ Completed       |
+|                                      | - Event name                                                                                           | ✅ Completed       |
+|                                      | - Date and location                                                                                    | ✅ Completed       |
+|                                      | - Description                                                                                          | ✅ Completed       |
+|                                      | - Event capacity                                                                                       | ✅ Completed       |
+|                                      | Each event is assigned a unique ID.                                                                    | ✅ Completed       |
+| **Event Calendar View**              |                                                                                                        | ✅ Completed       |
+|                                      | Integrated calendar view for visualizing events by date.                                               | ✅ Completed       |
+|                                      | Users can filter events based on their preferences.                                                    | ✅ Completed       |
 
 ---
 
@@ -93,7 +86,6 @@ cd eventify
 ```
 
 ### 2. Install Dependencies
-
 ```bash
 npm install
 ```
@@ -119,93 +111,93 @@ Navigate to the `Public` directory and open `index.html` in your browser.
 
 ## API Documentation
 
-### 1. Categories Endpoints
-The following endpoints handle operations related to **categories**, such as creating, deleting, updating, and retrieving categories.
+### Categories Endpoints
+Endpoints for managing event categories, including creation, deletion, updates, and retrieval.
 
 #### Create Category
-![Create Category Test](Public/assets/endpoint-test/categories/Create-category.png)
+![Create Category](Public/assets/endpoint-test/categories/Create-category.png)
 
 #### Delete Category
-![Delete Category Test](Public/assets/endpoint-test/categories/delete-category.png)
+![Delete Category](Public/assets/endpoint-test/categories/delete-category.png)
 
 #### Get Categories
-![Get Categories Test](Public/assets/endpoint-test/categories/get-categories.png)
+![Get Categories](Public/assets/endpoint-test/categories/get-categories.png)
 
 #### Get Category
-![Get Category Test](Public/assets/endpoint-test/categories/get-category.png)
+![Get Category](Public/assets/endpoint-test/categories/get-category.png)
 
 #### Update Category
-![Update Category Test](Public/assets/endpoint-test/categories/update-category.png)
+![Update Category](Public/assets/endpoint-test/categories/update-category.png)
 
 ---
 
-### 2. Events Endpoints
-Endpoints related to **events** include CRUD operations, as well as specific field updates.
+### Event Endpoints
+Endpoints for managing events, including CRUD operations and specific field updates.
 
 #### Create Event
-![Create Event Test](Public/assets/endpoint-test/events/create-event.png)
+![Create Event](Public/assets/endpoint-test/events/create-event.png)
 
 #### Delete Event
-![Delete Event Test](Public/assets/endpoint-test/events/delete-event.png)
+![Delete Event](Public/assets/endpoint-test/events/delete-event.png)
 
 #### Get Event
-![Get Event Test](Public/assets/endpoint-test/events/get-event.png)
+![Get Event](Public/assets/endpoint-test/events/get-event.png)
 
 #### Update Event Field
-![Update Event Field Test](Public/assets/endpoint-test/events/update-event-field.png)
+![Update Event Field](Public/assets/endpoint-test/events/update-event-field.png)
 
 #### Update Event
-![Update Event Test](Public/assets/endpoint-test/events/update-event.png)
+![Update Event](Public/assets/endpoint-test/events/update-event.png)
 
 ---
 
-### 3. RSVPs Endpoints
-Testing endpoints for **RSVP** operations ensures guests' responses can be created, updated, and retrieved seamlessly.
+### RSVP Endpoints
+Endpoints for handling RSVP-related operations.
 
 #### Create RSVP
-![Create RSVP Test](Public/assets/endpoint-test/rsvps/create-rsvp.png)
+![Create RSVP](Public/assets/endpoint-test/rsvps/create-rsvp.png)
 
 #### Delete RSVP
-![Delete RSVP Test](Public/assets/endpoint-test/rsvps/delete-rsvp.png)
+![Delete RSVP](Public/assets/endpoint-test/rsvps/delete-rsvp.png)
 
 #### Get RSVP
-![Get RSVP Test](Public/assets/endpoint-test/rsvps/get-rsvp.png)
+![Get RSVP](Public/assets/endpoint-test/rsvps/get-rsvp.png)
 
 #### Get RSVPs
-![Get RSVPs Test](Public/assets/endpoint-test/rsvps/get-rsvps.png)
+![Get RSVPs](Public/assets/endpoint-test/rsvps/get-rsvps.png)
 
 ---
 
-### 4. User Endpoints
-Endpoints for **user management** include user creation, login, and deletion operations.
+### User Endpoints
+Endpoints for user management, including creation, authentication, and retrieval.
 
 #### Delete User
-![Delete User Test](Public/assets/endpoint-test/user/delete-user.png)
+![Delete User](Public/assets/endpoint-test/user/delete-user.png)
 
 #### Get User
-![Get User Test](Public/assets/endpoint-test/user/get-user.png)
+![Get User](Public/assets/endpoint-test/user/get-user.png)
 
 #### Get Users
-![Get Users Test](Public/assets/endpoint-test/user/get-users.png)
+![Get Users](Public/assets/endpoint-test/user/get-users.png)
 
 #### Register User
-![Register User Test](Public/assets/endpoint-test/user/register-user.png)
+![Register User](Public/assets/endpoint-test/user/register-user.png)
 
 #### User Login
-![User Login Test](Public/assets/endpoint-test/user/user-login.png)
+![User Login](Public/assets/endpoint-test/user/user-login.png)
 
 ---
 
 ## Screenshots
 
 #### Home Page
-![Home](Public/assets/ui/home.png)
+![Home Page](Public/assets/ui/home.png)
 
 #### Features Section
-![Features](Public/assets/ui/features.png)
+![Features Section](Public/assets/ui/features.png)
 
 #### Login Page
-![Login](Public/assets/ui/login.png)
+![Login Page](Public/assets/ui/login.png)
 
 #### User Dashboard
 ![User Dashboard](Public/assets/ui/user-dashboard.png)
@@ -216,3 +208,4 @@ Endpoints for **user management** include user creation, login, and deletion ope
 ---
 
 Thank you for using Eventify!
+
