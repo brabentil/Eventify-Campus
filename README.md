@@ -23,7 +23,7 @@ Eventify is a campus event management system that allows students and staff to v
 ## Deployment Link
 
 You can access Eventify live on Render:
-[Eventify on Render](https://your-render-deployment-link.com)
+[Eventify on Render](https://eventify-campus.onrender.com/)
 
 ---
 
@@ -42,17 +42,35 @@ If authentication is required, you can use the following test login credentials:
 
 ---
 
-## Features
+## Features 
 
-- **User Authentication**
-- **Event Creation**
-- **Event Listing**
-- **RSVP Management**
-- **Event Calendar**
-- **Notifications**
-- **User Profile Management**
-- **Admin Dashboard**
-- **Analytics and Reporting**
+### User Registration & Event Preferences ✅  
+- User registration and login functionality implemented.  
+- Users can set preferences for event types.  
+
+### Event Listings & RSVP ✅  
+- Display upcoming events with details including:  
+  - Event name  
+  - Date and time  
+  - Location  
+  - Available seats  
+- Users can RSVP for events:  
+  - Updates available seats in real-time.  
+  - Stores RSVP'd events in the user's profile.  
+
+### Event Creation (Admin Only) ✅  
+- Admin-exclusive feature to create events.  
+- Admins can provide event details including:  
+  - Event name  
+  - Date and location  
+  - Description  
+  - Event capacity  
+- Each event is assigned a unique ID.  
+
+### Event Calendar View ✅  
+- Integrated calendar view to display events by date.  
+- Users can filter events based on their preferences.  
+
 
 ---
 
@@ -62,7 +80,6 @@ If authentication is required, you can use the following test login credentials:
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Deployment:** Render
-- **Authentication:** JSON Web Tokens (JWT)
 
 ---
 
@@ -199,4 +216,4 @@ Endpoints for **user management** include user creation, login, and deletion ope
 
 ---
 
-Thank you for using Eventify! If you encounter any issues, feel free to [open an issue on GitHub](https://github.com/your-username/eventify/issues).
+Thank you for using Eventify! 
