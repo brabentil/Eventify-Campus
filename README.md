@@ -8,10 +8,10 @@ Eventify is a campus event management system that allows students and staff to v
 
 - [Deployment Link](#deployment-link)
 - [Sample Login Details](#sample-login-details)
-- [Features](#features)
+- [Feature Checklist](#feature-checklist)
 - [Tech Stack](#tech-stack)
 - [Installation Instructions](#installation-instructions)
-- [API Endpoints](#api-endpoints)
+- [API Documentation](#api-documentation)
   - [Category Endpoints](#1-categories-endpoints)
   - [Event Endpoints](#2-events-endpoints)
   - [RSVP Endpoints](#3-rsvps-endpoints)
@@ -42,35 +42,34 @@ If authentication is required, you can use the following test login credentials:
 
 ---
 
-## Features 
+## Feature Checklist
 
-### User Registration & Event Preferences ✅  
-- User registration and login functionality implemented.  
-- Users can set preferences for event types.  
+### User Registration & Event Preferences
+- [x] User registration and login functionality implemented.
+- [x] Users can set preferences for event types.
 
-### Event Listings & RSVP ✅  
-- Display upcoming events with details including:  
-  - Event name  
-  - Date and time  
-  - Location  
-  - Available seats  
-- Users can RSVP for events:  
-  - Updates available seats in real-time.  
-  - Stores RSVP'd events in the user's profile.  
+### Event Listings & RSVP
+- [x] Display upcoming events with details, including:
+  - Event name
+  - Date and time
+  - Location
+  - Available seats
+- [x] Users can RSVP for events:
+  - Updates available seats in real-time.
+  - Stores RSVP'd events in the user's profile.
 
-### Event Creation (Admin Only) ✅  
-- Admin-exclusive feature to create events.  
-- Admins can provide event details including:  
-  - Event name  
-  - Date and location  
-  - Description  
-  - Event capacity  
-- Each event is assigned a unique ID.  
+### Event Creation (Admin Only)
+- [x] Admin-exclusive feature to create events.
+- [x] Admins can provide event details, including:
+  - Event name
+  - Date and location
+  - Description
+  - Event capacity
+- [x] Each event is assigned a unique ID.
 
-### Event Calendar View ✅  
-- Integrated calendar view to display events by date.  
-- Users can filter events based on their preferences.  
-
+### Event Calendar View
+- [x] Integrated calendar view to display events by date.
+- [x] Users can filter events based on their preferences.
 
 ---
 
@@ -118,7 +117,7 @@ Navigate to the `Public` directory and open `index.html` in your browser.
 
 ---
 
-## API Endpoints
+## API Documentation
 
 ### 1. Categories Endpoints
 The following endpoints handle operations related to **categories**, such as creating, deleting, updating, and retrieving categories.
@@ -202,7 +201,7 @@ Endpoints for **user management** include user creation, login, and deletion ope
 #### Home Page
 ![Home](Public/assets/ui/home.png)
 
-#### Features section
+#### Features Section
 ![Features](Public/assets/ui/features.png)
 
 #### Login Page
@@ -216,4 +215,4 @@ Endpoints for **user management** include user creation, login, and deletion ope
 
 ---
 
-Thank you for using Eventify! 
+Thank you for using Eventify!
