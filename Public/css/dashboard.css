@@ -192,3 +192,70 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-header p {
+        font-size: 1rem;
+    }
+
+    .dashboard-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .dashboard-card p {
+        font-size: 1rem;
+    }
+
+    .dashboard-card i {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-card .dashboard-link {
+        padding: 0.3rem 0.8rem;
+    }
+
+    .dashboard-recent-activity h2 {
+        font-size: 1.2rem;
+    }
+
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .activity-timestamp {
+        font-size: 0.8rem;
+    }
+
+    .key-functionalities {
+        padding: 1rem;
+    }
+
+    .key-functionalities h2 {
+        font-size: 1.5rem;
+    }
+
+    .functionalities-card {
+        padding: 1rem;
+    }
+
+    .functionalities-card i {
+        font-size: 2rem;
+    }
+
+    .functionalities-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .functionalities-card p {
+        font-size: 1rem;
+    }
+
+    .action-link {
+        padding: 0.3rem 0.8rem;
+    }
+}

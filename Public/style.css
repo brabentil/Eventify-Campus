@@ -743,3 +743,96 @@ footer .divider {
         padding: 3rem 2rem;
     }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.875rem; /* Adjust base font size for smaller screens */
+    }
+
+    nav {
+        padding: 0.5rem 1rem; /* Reduce padding for smaller screens */
+    }
+
+    nav .logo img {
+        height: 40px; /* Smaller logo */
+    }
+
+    nav ul {
+        gap: 1rem; /* Reduce gap between nav items */
+    }
+
+    nav ul a {
+        font-size: 0.875rem; /* Smaller font size for nav links */
+    }
+
+    .hero-content {
+        padding: 3rem 1rem; /* Reduce padding for hero section */
+    }
+
+    .hero-content .hero-heading {
+        font-size: 2rem; /* Smaller font size for hero heading */
+    }
+
+    .hero-content .hero-subtext {
+        font-size: 1rem; /* Smaller font size for hero subtext */
+    }
+
+    .hero-content .hero-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 1rem; /* Reduce gap between buttons */
+    }
+
+    #features {
+        padding: 3rem 1rem; /* Reduce padding for features section */
+    }
+
+    #features h2 {
+        font-size: 2rem; /* Smaller font size for features heading */
+    }
+
+    #features .grid {
+        gap: 1.5rem; /* Reduce gap between feature items */
+    }
+
+    #about {
+        padding: 3rem 1rem; /* Reduce padding for about section */
+    }
+
+    #about .grid {
+        gap: 1.5rem; /* Reduce gap between about items */
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem; /* Smaller font size for about heading */
+    }
+
+    .about-content p {
+        font-size: 0.875rem; /* Smaller font size for about text */
+    }
+
+    #contact {
+        padding: 3rem 1rem; /* Reduce padding for contact section */
+    }
+
+    #contact h2 {
+        font-size: 2rem; /* Smaller font size for contact heading */
+    }
+
+    #contact p {
+        font-size: 0.875rem; /* Smaller font size for contact text */
+    }
+
+    footer {
+        padding: 2rem 1rem; /* Reduce padding for footer */
+    }
+
+    footer p {
+        font-size: 0.875rem; /* Smaller font size for footer text */
+    }
+
+    footer .footer-links {
+        flex-direction: column; /* Stack footer links vertically */
+        gap: 1rem; /* Reduce gap between footer links */
+    }
+}

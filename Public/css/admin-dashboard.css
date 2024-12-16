@@ -1,12 +1,10 @@
-/* Main Content Styles */
 .main-content {
-    margin-left: 250px; /* Adjust for sidebar width */
+    margin-left: 250px;
     padding: 2rem;
     background-color: var(--background-light);
     min-height: 100vh;
 }
 
-/* Overview Section */
 .dashboard-header {
     margin-bottom: 2rem;
     text-align: center;
@@ -22,7 +20,6 @@
     color: var(--text-light-gray);
 }
 
-/* Key Functionalities Section */
 .key-functionalities {
     margin-bottom: 2rem;
     padding: 2rem;
@@ -90,7 +87,6 @@
     background-color: var(--pink);
 }
 
-/* Recent Activities Section */
 .dashboard-recent-activity {
     background-color: var(--white);
     padding: var(--spacing-unit);
@@ -136,7 +132,6 @@
     color: var(--text-light-gray);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .main-content {
         margin-left: 0;
@@ -146,5 +141,55 @@
     .functionalities-grid, 
     .recent-activity-list {
         grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-header p {
+        font-size: 0.9rem;
+    }
+
+    .key-functionalities {
+        padding: 1rem;
+    }
+
+    .key-functionalities h2 {
+        font-size: 1.25rem;
+    }
+
+    .functionalities-card {
+        padding: 1rem;
+    }
+
+    .functionalities-card h3 {
+        font-size: 1rem;
+    }
+
+    .functionalities-card p {
+        font-size: 0.9rem;
+    }
+
+    .action-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .dashboard-recent-activity {
+        padding: 1rem;
+    }
+
+    .dashboard-recent-activity h2 {
+        font-size: 1.25rem;
+    }
+
+    .activity-item {
+        padding: 0.5rem;
+    }
+
+    .activity-timestamp {
+        font-size: 0.8rem;
     }
 }
